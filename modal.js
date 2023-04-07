@@ -14,8 +14,8 @@ function modalEvents() {
 
   // launch modal event
   signupBtns.forEach((btn) => btn.addEventListener("click", () => {
-    lauchDiv(modalSection);
-    lauchDiv(".content--form-body");
+    launchDiv(modalSection);
+    launchDiv(".content--form-body");
     document.getElementById("firstName").focus();
   }));
 
@@ -27,7 +27,7 @@ function modalEvents() {
 }
 
 // add class with "display: block" on div 
-function lauchDiv(div) {
+function launchDiv(div) {
   document.querySelector(div).className += " show";
 }
 
@@ -41,7 +41,7 @@ formEvent();
 function formEvent() {
   const form = document.querySelector("#bookingGameEvent");
 
-  // lauch validation form bookingGameEvent
+  // launch validation form bookingGameEvent
   form.addEventListener('submit', (event) => {
 
     const fieldsToValidate = new Map([
@@ -60,7 +60,7 @@ function formEvent() {
       // key : class of window, 
       // value : function to execute on the window 
       ['.content--form-body', closeDiv],
-      ['.content--confirmation', lauchDiv]
+      ['.content--confirmation', launchDiv]
     ]);
 
     event.preventDefault();
@@ -72,7 +72,7 @@ function formEvent() {
   });
 }
 
-/* purpose : to validate the form, needs a map with the functions to call by inputs' name, 
+/* purpose : to validate the form, needs a map with the functions to call by inputs name, 
 a map with the functions to call after the validation succeed, 
 and the form that has to be reset */
 function validateForm(mapFieldsAndFctsForValidation, mapActionsAfterFormValidated, form) {
@@ -88,7 +88,7 @@ function validateForm(mapFieldsAndFctsForValidation, mapActionsAfterFormValidate
 }
 
 /* purpose : to call all the functions for each field pointed out in mapFielsAndFctsForValidation,
-             to display the error messages send by the validation's functions
+to display the error messages send by the validation's functions
 return the number of error found */
 function validationFields(mapFieldsAndFctsForValidation) {
   let errors = 0;
